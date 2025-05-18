@@ -1,0 +1,982 @@
+/**
+ * Stylesheet for Supreme Court page of Judiciary of Eswatini website
+ * Implements sleek, modern design with glassmorphism effects
+ */
+
+/* ===== Hero Section ===== */
+.hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    margin-bottom: var(--spacing-xl);
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 51, 102, 0.85), rgba(0, 87, 146, 0.7));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+}
+
+.hero-content h1 {
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+    font-size: 2.75rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.hero-content .tagline {
+    font-size: 1.3rem;
+    font-family: var(--heading-font);
+    font-weight: 300;
+    margin-bottom: 0;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Supreme Container Layout ===== */
+.supreme-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+/* ===== Sidebar Navigation ===== */
+.supreme-sidebar {
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    padding: var(--spacing-lg);
+}
+
+.sidebar-nav h3 {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--gold);
+    font-size: 1.25rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.sidebar-nav li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--dark-gray);
+    border-left: 3px solid transparent;
+    transition: all var(--transition-normal);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus {
+    color: var(--primary-blue);
+    border-left-color: var(--gold);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.sidebar-nav a.active {
+    color: var(--primary-blue);
+    border-left-color: var(--gold);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Scrollbar styling for the sidebar */
+.sidebar-nav ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-nav ul::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.sidebar-nav ul::-webkit-scrollbar-thumb {
+    background: var(--medium-gray);
+    border-radius: 10px;
+}
+
+.sidebar-nav ul::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* ===== Main Content Sections ===== */
+.supreme-section-content {
+    margin-bottom: var(--spacing-xxl);
+    scroll-margin-top: 100px;
+}
+
+.section-header {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+    display: inline-block;
+    padding-bottom: var(--spacing-sm);
+    position: relative;
+    font-size: 1.8rem;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+}
+
+/* ===== Glass Cards ===== */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Composition Section ===== */
+.composition-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.composition-card {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.composition-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+}
+
+.composition-icon i {
+    font-size: 32px;
+    color: var(--primary-blue);
+}
+
+.composition-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+}
+
+/* Justices Carousel */
+.justices-carousel {
+    padding: var(--spacing-lg);
+}
+
+.justices-carousel h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+}
+
+.justices-carousel h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.justices-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.justice-card {
+    text-align: center;
+}
+
+.justice-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+}
+
+.justice-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.justice-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-blue);
+}
+
+/* ===== Jurisdiction Tabs ===== */
+.jurisdiction-tabs {
+    margin-top: var(--spacing-md);
+}
+
+.tabs-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.tab-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--medium-gray);
+    border: none;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
+}
+
+.tab-btn:hover {
+    background-color: var(--light-blue);
+}
+
+.tab-btn.active {
+    background-color: var(--glass-bg);
+    border-bottom: none;
+}
+
+.tabs-content {
+    padding: var(--spacing-lg);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) var(--border-radius-md);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.feature-list {
+    padding-left: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.feature-list li {
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+}
+
+.feature-list li::before {
+    content: '•';
+    color: var(--gold);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* ===== Process Steps ===== */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-fast);
+}
+
+.process-step:hover {
+    transform: translateX(5px);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-blue);
+}
+
+/* ===== Criminal Appeals Section ===== */
+.criminal-appeals-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-fast);
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.info-icon i {
+    font-size: 24px;
+    color: var(--primary-blue);
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-content h4 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-blue);
+}
+
+/* ===== Civil Appeals Section ===== */
+.civil-appeals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.appeal-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-fast);
+}
+
+.appeal-item:hover {
+    transform: translateY(-5px);
+}
+
+.appeal-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+}
+
+.appeal-icon i {
+    font-size: 28px;
+    color: var(--primary-blue);
+}
+
+.appeal-item h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+}
+
+/* ===== Pauper Appellants Section ===== */
+.eligibility-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.eligibility-criteria,
+.application-process,
+.free-representation {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+}
+
+.eligibility-content h4 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-blue);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.eligibility-content h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.process-list {
+    padding-left: 25px;
+    margin-bottom: 0;
+}
+
+.process-list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ===== Two Column Grid ===== */
+.two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.checklist {
+    list-style: none;
+    padding-left: 5px;
+    margin-top: var(--spacing-md);
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.checklist li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+/* ===== Supervisory Jurisdiction Section ===== */
+.supervisory-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.scope-info,
+.procedure-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+}
+
+.supervisory-content h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-blue);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.supervisory-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.numbered-steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.numbered-steps li {
+    counter-increment: step-counter;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: var(--spacing-md);
+}
+
+.numbered-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ===== Audio-Visual Links Section ===== */
+.criteria-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.criteria-box h3,
+.technical-standards h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-blue);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.criteria-box h3::after,
+.technical-standards h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.criteria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.criterion {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+}
+
+.criterion h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+}
+
+.standard-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.standard-list li {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+}
+
+/* ===== Costs Section ===== */
+.costs-content {
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-md);
+}
+
+.costs-content h3 {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+}
+
+.costs-content h3:first-child {
+    margin-top: 0;
+}
+
+/* ===== Forms Table ===== */
+.forms-table-container {
+    overflow-x: auto;
+}
+
+.forms-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.forms-table th {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+}
+
+.forms-table td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.forms-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.download-link {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--gold);
+    color: var(--black);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.download-link:hover {
+    background-color: var(--gold-light);
+    text-decoration: none;
+}
+
+/* ===== Sessions Section ===== */
+.sessions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.session-card {
+    text-align: center;
+}
+
+.session-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+}
+
+.session-icon i {
+    font-size: 28px;
+    color: var(--primary-blue);
+}
+
+/* ===== Officials Section ===== */
+.officials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.official-card {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-fast);
+}
+
+.official-card:hover {
+    transform: translateY(-5px);
+}
+
+.official-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+}
+
+.official-icon i {
+    font-size: 28px;
+    color: var(--primary-blue);
+}
+
+/* ===== Access & Etiquette Section ===== */
+.access-etiquette-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.etiquette-card {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.etiquette-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+}
+
+.etiquette-icon i {
+    font-size: 28px;
+    color: var(--primary-blue);
+}
+
+/* ===== Contact Section ===== */
+.contact-card {
+    padding: var(--spacing-lg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.contact-info h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-blue);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.contact-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-list li i {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.map-placeholder {
+    height: 100%;
+    min-height: 250px;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-placeholder i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-md);
+}
+
+.disclaimer {
+    text-align: center;
+    font-style: italic;
+    color: var(--dark-gray);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* ===== Call to Action ===== */
+.supreme-cta {
+    margin-top: var(--spacing-xxl);
+}
+
+.cta-container {
+    padding: var(--spacing-xl);
+    text-align: center;
+    background-color: rgba(0, 51, 102, 0.05);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 1024px) {
+    .composition-grid,
+    .justices-grid,
+    .criminal-appeals-content,
+    .civil-appeals-grid,
+    .eligibility-content,
+    .supervisory-content,
+    .officials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .access-etiquette-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .map-placeholder {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.25rem;
+    }
+    
+    .hero-content .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .supreme-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .supreme-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .sidebar-nav ul {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
+    .two-column-grid,
+    .criteria-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .jurisdiction-tabs .tabs-header {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        border-radius: 0;
+    }
+    
+    .tab-btn:first-child {
+        border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .composition-grid,
+    .justices-grid,
+    .criminal-appeals-content,
+    .civil-appeals-grid,
+    .eligibility-content,
+    .supervisory-content,
+    .sessions-grid,
+    .officials-grid,
+    .access-etiquette-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-section {
+        height: 350px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-content .tagline {
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+}

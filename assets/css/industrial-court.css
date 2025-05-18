@@ -1,0 +1,706 @@
+/**
+ * Industrial Court CSS
+ * Styles specific to the Industrial Court page of the Judiciary of Eswatini
+ */
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    background-image: url('../images/legal.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 3rem;
+    max-width: 800px;
+    width: 90%;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass Panel Component */
+.glass-panel {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 31, 63, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 31, 63, 0.15);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: #002855;
+    margin-bottom: 0.7rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #e6b012;
+}
+
+.section-header p {
+    color: #555;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 1rem auto 0;
+}
+
+/* Introduction Section */
+.intro-section {
+    margin-top: -3rem;
+    z-index: 3;
+    position: relative;
+}
+
+.section-content h2 {
+    color: #002855;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.section-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Court Members Section */
+.members-section {
+    margin: 4rem 0;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.member-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.member-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.member-info {
+    padding: 0.5rem 0;
+}
+
+.member-info h3 {
+    font-size: 1.4rem;
+    color: #002855;
+    margin-bottom: 0.5rem;
+}
+
+.member-title {
+    color: #555;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 0.7rem;
+}
+
+.member-bio {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.assessors-info {
+    padding: 2rem;
+    background-color: rgba(0, 40, 85, 0.05);
+}
+
+.assessors-info h3 {
+    color: #002855;
+    margin-bottom: 1rem;
+}
+
+/* Tabs for Jurisdiction Section */
+.jurisdiction-section {
+    margin: 4rem 0;
+}
+
+.tabs-container {
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    border: none;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(0, 40, 85, 0.1);
+    color: #002855;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background-color: rgba(0, 40, 85, 0.2);
+}
+
+.tab-btn.active {
+    background-color: #002855;
+    color: white;
+}
+
+.tab-content {
+    padding: 2rem;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tab-pane h3 {
+    color: #002855;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.feature-list .icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-right: 1rem;
+    margin-top: 0.3rem;
+    fill: #002855;
+}
+
+.feature-list h4 {
+    font-size: 1.2rem;
+    color: #002855;
+    margin-bottom: 0.5rem;
+}
+
+/* Accordion for Procedures Section */
+.procedures-section {
+    margin: 4rem 0;
+}
+
+.accordion {
+    overflow: hidden;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 40, 85, 0.1);
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
+.accordion-header h3 {
+    font-size: 1.3rem;
+    color: #002855;
+    margin: 0;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #002855;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px;
+    padding-bottom: 1.5rem;
+}
+
+.accordion-content p {
+    margin-bottom: 1rem;
+}
+
+.accordion-content ul, .accordion-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.accordion-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* ADR Section */
+.adr-section {
+    margin: 4rem 0;
+}
+
+.adr-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.adr-card {
+    text-align: center;
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon .icon {
+    width: 60px;
+    height: 60px;
+    fill: #002855;
+}
+
+.adr-card h3 {
+    font-size: 1.4rem;
+    color: #002855;
+    margin-bottom: 1rem;
+}
+
+.adr-card ul {
+    text-align: left;
+    list-style: none;
+    padding: 0 1rem;
+}
+
+.adr-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.adr-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #e6b012;
+}
+
+/* Appeals Section */
+.appeals-section {
+    margin: 4rem 0;
+}
+
+.appeal-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.appeal-item h3 {
+    color: #002855;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e6b012;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.appeal-item ul, .appeal-item ol {
+    padding-left: 1.5rem;
+}
+
+.appeal-item li {
+    margin-bottom: 0.5rem;
+}
+
+.appeal-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.appeal-link a {
+    color: #002855;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.appeal-link a:hover {
+    color: #e6b012;
+}
+
+/* Resources Section */
+.resources-section {
+    margin: 4rem 0;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.resource-icon {
+    margin-bottom: 1rem;
+}
+
+.resource-icon .icon {
+    width: 50px;
+    height: 50px;
+    fill: #002855;
+}
+
+.resource-content h3 {
+    font-size: 1.3rem;
+    color: #002855;
+    margin-bottom: 0.7rem;
+}
+
+.resource-content p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.resource-link {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background-color: #002855;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.resource-link:hover {
+    background-color: #003c7e;
+}
+
+/* Case Management Section */
+.case-management-section {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.feature-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 40, 85, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.feature-icon .icon {
+    width: 35px;
+    height: 35px;
+    fill: #002855;
+}
+
+.feature-column h3 {
+    font-size: 1.2rem;
+    color: #002855;
+    margin-bottom: 0.7rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #002855;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #003c7e;
+    transform: translateY(-3px);
+}
+
+/* Landmark Cases Section */
+.landmark-section {
+    margin: 4rem 0;
+}
+
+.cases-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cases-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 3px;
+    height: 100%;
+    background-color: rgba(0, 40, 85, 0.2);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2rem;
+}
+
+.timeline-date {
+    position: absolute;
+    top: 1.5rem;
+    left: -20px;
+    width: 80px;
+    text-align: center;
+    background-color: #002855;
+    color: white;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.timeline-content {
+    padding: 1.5rem;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    color: #002855;
+    margin-bottom: 0.7rem;
+}
+
+/* Contact Section */
+.contact-section {
+    margin: 4rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-icon {
+    margin-bottom: 1rem;
+}
+
+.contact-icon .icon {
+    width: 40px;
+    height: 40px;
+    fill: #002855;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    color: #002855;
+    margin-bottom: 0.7rem;
+}
+
+.contact-item p {
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero-content .tagline {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .appeal-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 50vh;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .members-grid, .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-date {
+        font-size: 0.9rem;
+        width: 70px;
+        left: -15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

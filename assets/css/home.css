@@ -1,0 +1,840 @@
+/**
+ * Homepage specific styles for Judiciary of Eswatini website
+ * Extends the main stylesheet with styles specifically for homepage elements
+ */
+
+/* ===== Hero Slider ===== */
+.hero-slider {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    height: 100%;
+}
+
+.slider {
+    position: relative;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+}
+
+.slide-content {
+    position: relative;
+    max-width: 600px;
+    margin-top: 120px;
+    padding: var(--spacing-xl);
+    color: var(--white);
+}
+
+.slide-content h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.slide-content .tagline {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.slide-content .badge {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--black);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.slider-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+    margin: 0 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background: var(--white);
+}
+
+/* ===== Welcome Section ===== */
+.welcome-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white);
+}
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+}
+
+.welcome-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.scales-svg {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.welcome-content h2 {
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.welcome-content h3 {
+    color: var(--gold);
+    font-weight: 400;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ===== Section Headers ===== */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header h2 {
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-sm);
+    font-size: 2.25rem;
+}
+
+.section-header p {
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+}
+
+/* ===== Quick Access Section ===== */
+.quick-access-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--light-gray);
+}
+
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.quick-access-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-access-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-icon .icon {
+    width: 32px;
+    height: 32px;
+    color: var(--primary-blue);
+}
+
+.quick-access-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-link {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.card-link span {
+    margin-right: var(--spacing-sm);
+}
+
+.card-link .icon {
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+    text-decoration: none;
+}
+
+.card-link:hover .icon {
+    transform: translateX(5px);
+}
+
+/* ===== Judicial Independence Section ===== */
+.independence-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white);
+    background-image: url('../images/pattern-bg.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.independence-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.independence-text {
+    padding-right: var(--spacing-xl);
+}
+
+.quote {
+    border-left: 4px solid var(--gold);
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+}
+
+.pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.pillar-card {
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+}
+
+.pillar-card .icon {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pillar-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pillar-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ===== Court Services Section ===== */
+.court-services-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--light-gray);
+}
+
+.service-slider {
+    position: relative;
+}
+
+.services-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: var(--spacing-md) 0;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    gap: var(--spacing-lg);
+}
+
+.services-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.service-card {
+    flex: 0 0 auto;
+    width: calc(33.333% - var(--spacing-lg));
+    min-width: 300px;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 51, 102, 0.1);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-icon .icon {
+    width: 32px;
+    height: 32px;
+    color: var(--primary-blue);
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-md);
+}
+
+.service-card p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 5;
+    padding: 0 var(--spacing-md);
+}
+
+.service-nav-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: none;
+    color: var(--primary-blue);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+}
+
+.service-nav-btn:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* ===== Values Section ===== */
+.values-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white);
+}
+
+.values-tabs {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.tab-btn .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.tab-btn.active {
+    color: var(--primary-blue);
+    position: relative;
+}
+
+.tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-blue);
+}
+
+.tabs-content {
+    padding: var(--spacing-lg);
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== News Section ===== */
+.news-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--light-gray);
+}
+
+.section-header .view-all-link {
+    position: absolute;
+    right: var(--container-padding);
+    top: var(--spacing-md);
+    color: var(--secondary-blue);
+    font-weight: 600;
+}
+
+.section-header .view-all-link:hover {
+    color: var(--primary-blue);
+}
+
+.news-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-sm);
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid var(--medium-gray);
+    border-radius: 50px;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.news-card {
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.news-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.05);
+}
+
+.news-category {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    background-color: var(--gold);
+    color: var(--black);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.news-content {
+    padding: var(--spacing-lg);
+}
+
+.news-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.news-content h3 a {
+    color: var(--black);
+}
+
+.news-content h3 a:hover {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.news-meta {
+    color: var(--dark-gray);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+}
+
+.news-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.news-action {
+    text-align: center;
+}
+
+/* ===== JSC Members Section ===== */
+.jsc-members-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white);
+}
+
+.members-slider {
+    position: relative;
+}
+
+.members-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: var(--spacing-md) 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: var(--spacing-lg);
+}
+
+.members-container::-webkit-scrollbar {
+    display: none;
+}
+
+.member-card {
+    flex: 0 0 auto;
+    width: calc(25% - var(--spacing-lg));
+    min-width: 250px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.member-photo {
+    height: 250px;
+    overflow: hidden;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.member-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.member-position {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.members-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 5;
+    padding: 0 var(--spacing-md);
+}
+
+.members-nav-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: none;
+    color: var(--primary-blue);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+}
+
+.members-nav-btn:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* ===== Newsletter Section ===== */
+.newsletter-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--light-gray);
+    background-image: url('../images/pattern-bg.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.newsletter-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    align-items: center;
+}
+
+.newsletter-content h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.newsletter-form-container {
+    max-width: 500px;
+}
+
+/* Additional buttons */
+.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 1024px) {
+    .hero-slider {
+        height: 500px;
+    }
+    
+    .independence-content,
+    .welcome-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .independence-text {
+        padding-right: 0;
+    }
+    
+    .pillar-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .newsletter-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .newsletter-form-container {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 400px;
+    }
+    
+    .slide-content {
+        margin-top: 80px;
+        padding: var(--spacing-lg);
+    }
+    
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+    
+    .pillar-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-slider {
+        height: 350px;
+    }
+    
+    .slide-content {
+        margin-top: 60px;
+    }
+    
+    .slide-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .pillar-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabs-header {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        padding: var(--spacing-sm);
+    }
+    
+    .tab-btn.active::after {
+        width: 50%;
+        left: 25%;
+    }
+}

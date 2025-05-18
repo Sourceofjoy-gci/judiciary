@@ -1,0 +1,312 @@
+/* ============================================= */
+/* == Small Claims Court Page Specific Styles == */
+/* ============================================= */
+
+:root {
+    --scc-primary-color: #0056b3; /* Slightly different blue */
+    --scc-secondary-color: #e0ac00; /* Slightly different gold */
+    --scc-light-bg: #f9f9f9;
+    --scc-text-color: #343a40;
+    --glass-bg-light: rgba(255, 255, 255, 0.65);
+    --glass-bg-dark: rgba(40, 40, 60, 0.55);
+    --glass-blur: 8px; /* Slightly less blur */
+    --glass-border-color: rgba(255, 255, 255, 0.25);
+    --card-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    --card-border-radius: 10px;
+}
+
+/* --- General Page Structure --- */
+.small-claims-content .container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.small-claims-content .content-section {
+    margin-bottom: 45px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.small-claims-content .content-section:hover {
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Glass Effects for specific sections */
+.small-claims-content .glass-effect,
+.small-claims-content .glass-effect-light {
+    border: 1px solid var(--glass-border-color);
+    box-shadow: var(--card-shadow);
+    position: relative; /* Needed for potential pseudo-elements */
+}
+
+.small-claims-content .glass-effect {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.small-claims-content .glass-effect-light {
+    background: rgba(255, 255, 255, 0.75); /* Lighter base for light effect */
+    backdrop-filter: blur(calc(var(--glass-blur) / 2)); /* Less blur */
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) / 2));
+}
+
+
+.small-claims-content h2 {
+    color: var(--scc-primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--scc-secondary-color);
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    font-size: 1.8em;
+}
+
+.small-claims-content h2 i {
+    font-size: 0.9em; /* Slightly smaller icon */
+    color: var(--scc-secondary-color);
+}
+
+
+.small-claims-content h3 {
+    color: var(--scc-primary-color);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.small-claims-content p,
+.small-claims-content li {
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: var(--scc-text-color);
+}
+
+.small-claims-content ul,
+.small-claims-content ol {
+    padding-left: 25px;
+}
+
+.small-claims-content strong {
+    font-weight: 600;
+    color: #495057;
+}
+
+.small-claims-content a {
+    color: var(--scc-primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.small-claims-content a:hover {
+    color: var(--scc-secondary-color);
+    text-decoration: underline;
+}
+
+/* --- Hero Section --- */
+.small-claims-hero {
+    background: url('../images/legal.jpg') no-repeat center center/cover; /* Relevant background */
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.small-claims-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 30, 70, 0.65); /* Slightly different overlay */
+    z-index: 1;
+}
+
+.small-claims-hero.glass-effect-dark::before {
+    background-color: var(--glass-bg-dark);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.small-claims-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.small-claims-hero h1 {
+    font-size: 2.6em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.small-claims-hero .subtitle {
+    font-size: 1.15em;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+/* --- Specific Section Styling --- */
+
+/* Definitions List */
+.definitions-list {
+    list-style: none;
+    padding-left: 0;
+}
+.definitions-list li {
+    padding: 10px;
+    border-bottom: 1px dashed #eee;
+}
+.definitions-list li:last-child {
+    border-bottom: none;
+}
+
+/* Jurisdiction Grid */
+.jurisdiction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+.jurisdiction-item {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast within glass */
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.jurisdiction-item.excluded {
+    background-color: rgba(255, 235, 238, 0.8); /* Light red background for excluded */
+    border-color: rgba(220, 53, 69, 0.2);
+}
+.jurisdiction-item.excluded h3 {
+    color: #dc3545; /* Red heading */
+}
+.jurisdiction-item ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* Filing Section - Steps List */
+.filing-section .steps-list {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: steps-counter;
+}
+.filing-section .steps-list li {
+    position: relative;
+    padding-left: 50px; /* More space for number */
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+.filing-section .steps-list li .step-number {
+    counter-increment: steps-counter;
+    position: absolute;
+    left: 0;
+    top: -2px; /* Align better vertically */
+    width: 35px;
+    height: 35px;
+    background-color: var(--scc-secondary-color);
+    color: var(--scc-primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.filing-section .steps-list li strong {
+    display: block; /* Make title stand out */
+    margin-bottom: 3px;
+    color: var(--scc-primary-color);
+}
+
+/* Additional Info Link */
+.additional-info-section .act-link {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--scc-light-bg);
+    border-left: 4px solid var(--scc-secondary-color);
+    border-radius: 4px;
+    font-style: italic;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.contact-grid h3 {
+    font-size: 1.3em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .small-claims-hero h1 {
+        font-size: 2.3em;
+    }
+    .small-claims-hero .subtitle {
+        font-size: 1.1em;
+    }
+    .small-claims-content h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 768px) {
+    .small-claims-hero {
+        padding: 50px 15px;
+    }
+    .small-claims-hero h1 {
+        font-size: 2em;
+    }
+    .small-claims-hero .subtitle {
+        font-size: 1em;
+    }
+    .small-claims-content .content-section {
+        padding: 20px;
+        margin-bottom: 35px;
+    }
+    .small-claims-content h2 {
+        font-size: 1.5em;
+    }
+    .jurisdiction-grid,
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+        gap: 20px;
+    }
+    .filing-section .steps-list li {
+        padding-left: 45px;
+    }
+    .filing-section .steps-list li .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 576px) {
+    .small-claims-hero h1 {
+        font-size: 1.8em;
+    }
+    .small-claims-hero .subtitle {
+        font-size: 0.95em;
+    }
+    .small-claims-content h2 {
+        font-size: 1.4em;
+    }
+    .small-claims-content h3 {
+        font-size: 1.2em;
+    }
+}

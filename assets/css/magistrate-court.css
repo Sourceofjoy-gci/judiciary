@@ -1,0 +1,811 @@
+/* ============================================= */
+/* == Magistrate Courts Page Specific Styles == */
+/* ============================================= */
+
+:root {
+    --magistrate-primary-color: #003366; /* Deep Blue */
+    --magistrate-secondary-color: #d4af37; /* Gold Accent */
+    --magistrate-light-bg: #f8f9fa;
+    --magistrate-text-color: #333;
+    --glass-bg-light: rgba(255, 255, 255, 0.6);
+    --glass-bg-dark: rgba(50, 50, 70, 0.5);
+    --glass-blur: 10px;
+    --glass-border-color: rgba(255, 255, 255, 0.2);
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-border-radius: 12px;
+}
+
+/* --- General Page Structure --- */
+.magistrate-content .container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.magistrate-content .content-section {
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.magistrate-content h2 {
+    color: var(--magistrate-primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--magistrate-secondary-color);
+    display: inline-block;
+}
+
+.magistrate-content h3 {
+    color: var(--magistrate-primary-color);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.magistrate-content h4 {
+    color: var(--magistrate-primary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.magistrate-content p,
+.magistrate-content li {
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: var(--magistrate-text-color);
+}
+
+/* Horizontal Scroll Book Layout - Magazine Spreads */
+.book-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    margin: 2rem auto;
+    background: linear-gradient(45deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.book-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.book-pages {
+    display: flex;
+    height: 100%;
+    counter-reset: page-counter;
+}
+
+.page {
+    width: 100vw;
+    height: 100%;
+    flex: 0 0 auto;
+    padding: 3rem;
+    scroll-snap-align: start;
+    position: relative;
+    background: white;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Magazine Spread Styling */
+.page::before {
+    content: counter(page-counter);
+    counter-increment: page-counter;
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.page:nth-child(even) {
+    background: #f8fafc;
+}
+
+.page-header {
+    border-left: 4px solid var(--magistrate-secondary-color);
+    padding-left: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.page-number {
+    font-size: 0.9em;
+    color: var(--magistrate-secondary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .book-container {
+        height: 70vh;
+        border-radius: 0;
+    }
+    
+    .page {
+        padding: 1.5rem;
+    }
+    
+    .page::before {
+        font-size: 2rem;
+        bottom: 0.5rem;
+        right: 1rem;
+    }
+}
+
+.magistrate-content ul,
+.magistrate-content ol {
+    padding-left: 25px;
+}
+
+.magistrate-content strong {
+    font-weight: 600;
+    color: #555;
+}
+
+/* --- Hero Section --- */
+.magistrate-hero {
+    background: url('../images/scales-of-justice.jpg') no-repeat center center/cover; /* Placeholder */
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.magistrate-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 20, 60, 0.6); /* Dark blue overlay */
+    z-index: 1;
+}
+
+/* Glass Effect for Hero (Optional - applied via class) */
+.magistrate-hero.glass-effect-dark::before {
+    background-color: var(--glass-bg-dark);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.magistrate-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.magistrate-hero h1 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.magistrate-hero .subtitle {
+    font-size: 1.2em;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* --- Court Locations & Map --- */
+.court-locations-section .map-container {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: var(--card-border-radius);
+    overflow: hidden; /* Important for border-radius on map */
+    box-shadow: var(--card-shadow);
+}
+
+.court-locations-section #court-map {
+    height: 450px;
+    width: 100%;
+    background-color: #e9ecef; /* Placeholder background */
+}
+
+.court-locations-section .map-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.court-locations-section .map-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 401; /* Above map tiles */
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.court-locations-section .map-controls span {
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.court-locations-section .map-controls i {
+    font-size: 1.1em;
+}
+
+/* Marker Colors */
+.principal-marker { color: #dc3545; } /* Red */
+.senior-marker { color: #ffc107; } /* Yellow */
+.regional-marker { color: #17a2b8; } /* Teal */
+
+/* Location Directory */
+.locations-directory {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.location-card {
+    padding: 20px;
+    border: 1px solid var(--glass-border-color);
+    border-radius: var(--card-border-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-card.glass-effect {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.location-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.location-card p {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+}
+
+/* --- Jurisdiction Section --- */
+.jurisdiction-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.jurisdiction-card {
+    padding: 25px;
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--glass-border-color);
+}
+
+.jurisdiction-card.glass-effect {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+.jurisdiction-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: var(--magistrate-primary-color);
+}
+
+.jurisdiction-card h3 i {
+    color: var(--magistrate-secondary-color);
+}
+
+.jurisdiction-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.jurisdiction-card li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.jurisdiction-card li::before {
+    content: '\f0da'; /* FontAwesome chevron-right */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--magistrate-secondary-color);
+    font-size: 0.9em;
+}
+
+/* --- Procedures Section --- */
+.procedure-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.procedure-tabs .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    background-color: #e9ecef;
+    color: #495057;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.procedure-tabs .tab.active {
+    background-color: #fff;
+    color: var(--magistrate-primary-color);
+    border-color: #ddd;
+    border-bottom-color: #fff; /* Hides the bottom border line */
+    position: relative;
+    top: 1px; /* Aligns with the content border */
+}
+
+.procedure-content .tab-pane {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background-color: #fff;
+}
+
+.procedure-content .tab-pane.active {
+    display: block;
+}
+
+.procedure-content h3 {
+    margin-top: 0;
+}
+
+/* --- Appeals Section --- */
+.appeals-section .steps-list {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: steps-counter;
+}
+
+.appeals-section .steps-list li {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 15px;
+    font-size: 1.05em;
+}
+
+.appeals-section .steps-list li .step-number {
+    counter-increment: steps-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--magistrate-secondary-color);
+    color: var(--magistrate-primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+/* --- Officials Section --- */
+.officials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.official-card {
+    padding: 20px;
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--glass-border-color);
+    text-align: center;
+}
+
+.official-card.glass-effect-light {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(5px); /* Lighter blur */
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.official-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* --- FAQ Section --- */
+.faq-accordion .faq-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.faq-accordion .faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 15px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--magistrate-primary-color);
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Space for icon */
+}
+
+.faq-question::after {
+    content: '\f078'; /* FontAwesome chevron-down */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 0.9em;
+}
+
+.faq-question.active::after {
+    transform: translateY(-50%) rotate(180deg); /* chevron-up */
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 15px;
+}
+
+.faq-answer p {
+    margin-bottom: 15px;
+}
+
+.faq-answer.active {
+    max-height: 300px; /* Adjust as needed */
+    padding: 15px 15px;
+}
+
+/* --- Contact and Support Section --- */
+.support-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.support-card {
+    padding: 25px;
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--glass-border-color);
+}
+
+.support-card.glass-effect {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--card-shadow);
+}
+
+.support-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: var(--magistrate-primary-color);
+}
+
+.support-card h3 i {
+    color: var(--magistrate-secondary-color);
+}
+
+.support-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.support-card li {
+    margin-bottom: 8px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .magistrate-hero h1 {
+        font-size: 2.4em;
+    }
+    .magistrate-hero .subtitle {
+        font-size: 1.1em;
+    }
+    .locations-directory,
+    .jurisdiction-details,
+    .officials-grid,
+    .support-details {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .magistrate-hero {
+        padding: 60px 15px;
+    }
+    .magistrate-hero h1 {
+        font-size: 2em;
+    }
+    .magistrate-hero .subtitle {
+        font-size: 1em;
+    }
+    .magistrate-content .content-section {
+        padding: 20px;
+    }
+    .locations-directory,
+    .jurisdiction-details,
+    .officials-grid,
+    .support-details {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+        gap: 20px;
+    }
+    .court-locations-section #court-map {
+        height: 350px;
+    }
+    .procedure-tabs {
+        flex-wrap: wrap; /* Allow tabs to wrap */
+    }
+    .procedure-tabs .tab {
+        flex-basis: 48%; /* Roughly two tabs per row */
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .magistrate-hero h1 {
+        font-size: 1.8em;
+    }
+    .magistrate-hero .subtitle {
+        font-size: 0.9em;
+    }
+    .court-locations-section .map-controls {
+        font-size: 0.8em;
+        padding: 6px 10px;
+        gap: 10px;
+    }
+    .procedure-tabs .tab {
+        flex-basis: 100%; /* Stack tabs vertically */
+    }
+    .faq-question {
+        font-size: 1em;
+    }
+}
+
+/* Hide default scrollbar for book pages */
+.book-pages::-webkit-scrollbar {
+    display: none;
+}
+
+.book-pages {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Ensure content within pages doesn't overflow horizontally */
+.book-pages .page > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .book-pages {
+        height: 400px; /* Adjust height for smaller screens */
+    }
+    .book-pages .page {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .book-pages {
+        height: 350px; /* Further adjust height for smaller screens */
+    }
+    .book-pages .page {
+        padding: 15px; /* Further adjust padding for smaller screens */
+    }
+}
+
+/* Interactive Table of Contents Styles */
+.interactive-toc {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    margin: 0.8rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    text-decoration: none; /* Ensure no underline */
+    color: #333; /* Default text color */
+    cursor: pointer; /* Indicate clickable */
+}
+
+.interactive-toc:hover {
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-toc.active {
+    border-left-color: var(--magistrate-primary-color); /* Highlight active item */
+    background: var(--magistrate-light-bg); /* Slightly different background */
+    color: var(--magistrate-primary-color); /* Highlight text color */
+    font-weight: 600;
+}
+
+.interactive-toc .toc-icon {
+    font-size: 1.8em;
+    color: var(--magistrate-secondary-color); /* Icon color */
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.interactive-toc.active .toc-icon {
+    color: var(--magistrate-primary-color); /* Highlight icon color */
+}
+
+.toc-details {
+    flex-grow: 1;
+}
+
+.toc-details .chapter-number {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 0.2rem;
+}
+
+.toc-details .chapter-title {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.toc-details .chapter-desc {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.interactive-toc.active .chapter-number,
+.interactive-toc.active .chapter-desc {
+    color: #555; /* Adjust color for active state */
+}
+
+.interactive-toc .fas.fa-chevron-right {
+    color: #999; /* Arrow color */
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.interactive-toc.active .fas.fa-chevron-right {
+    color: var(--magistrate-primary-color); /* Highlight arrow color */
+}
+
+.interactive-toc:hover {
+    transform: translateX(8px);
+    border-left-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toc-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-light);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+}
+
+.toc-icon i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.toc-details {
+    flex-grow: 1;
+}
+
+.chapter-number {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.2rem;
+}
+
+.chapter-title {
+    display: block;
+    font-weight: 600;
+    color: var(--dark-text);
+    font-size: 1.1rem;
+}
+
+.chapter-desc {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.3rem;
+}
+
+.interactive-toc .fa-chevron-right {
+    color: #ccc;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.interactive-toc:hover .fa-chevron-right {
+    color: var(--primary-color);
+    transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+    .interactive-toc {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .toc-icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 1rem;
+    }
+
+    .chapter-title {
+        font-size: 1rem;
+    }
+}
